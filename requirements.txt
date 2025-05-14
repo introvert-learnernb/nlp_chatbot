@@ -1,4 +1,5 @@
 streamlit
 nltk
 torch
-numpy 
+numpy
+pyttsx3
