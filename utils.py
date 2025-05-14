@@ -5,7 +5,8 @@ from nltk.stem.porter import PorterStemmer
 import string
 
 #Download tokenizer if not already present
-nltk.download('punkt')
+#nltk.download('punkt')
+nltk.data.path.append('./nltk_data')
 
 stemmer = PorterStemmer()
 
