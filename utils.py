@@ -6,7 +6,16 @@ import string
 
 #Download tokenizer if not already present
 #nltk.download('punkt')
+
+# Use local nltk_data folder if exists
 nltk.data.path.append('./nltk_data')
+
+# Ensure 'punkt' tokenizer is available
+try:
+    nltk.data.find("tokenizers/punkt")
+except LookupError:
+    nltk.download("punkt")
+
 
 stemmer = PorterStemmer()
 
