@@ -8,14 +8,15 @@ import string
 #nltk.download('punkt')
 
 
-# Force download at runtime (Cloud-safe)
+# Add /tmp/nltk_data for Streamlit compatibility
+nltk_path = "/tmp/nltk_data"
+nltk.data.path.append(nltk_path)
+
+# Download punkt if it's missing
 try:
     nltk.data.find("tokenizers/punkt")
 except LookupError:
-    nltk.download("punkt", download_dir="/tmp/nltk_data")
-
-# Tell NLTK to look inside /tmp/nltk_data
-nltk.data.path.append("/tmp/nltk_data")
+    nltk.download("punkt", download_dir=nltk_path)
 
 
 stemmer = PorterStemmer()
