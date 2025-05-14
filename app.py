@@ -26,7 +26,7 @@ if "chat_history" not in st.session_state:
 uploaded_file = st.file_uploader("📄 Upload your intents.json file", type=["json"])
 
 # Checkbox to use default sample intents instead of uploading
-use_default = st.checkbox("📂 Use default intents.json from sample_data")
+use_default = st.checkbox("📂 Use default intents.json")
 
 # Handle default intents.json checkbox
 if use_default:
