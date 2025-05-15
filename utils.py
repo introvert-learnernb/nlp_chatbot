@@ -11,12 +11,14 @@ import string
 # Add /tmp/nltk_data for Streamlit compatibility
 nltk_path = "/tmp/nltk_data"
 nltk.data.path.append(nltk_path)
-
+print("nltk.data.path =", nltk.data.path)
 # Download punkt if it's missing
 try:
     nltk.data.find("tokenizers/punkt")
 except LookupError:
-    nltk.download("punkt", download_dir=nltk_path)
+    print("Downloading punkt tokenizer...")
+    nltk.download("punkt", download_dir=nltk_path, force=True)
+
 
 
 stemmer = PorterStemmer()
