@@ -12,9 +12,11 @@ import string
 nltk_path = "/tmp/nltk_data"
 nltk.data.path.append(nltk_path)
 print("nltk.data.path =", nltk.data.path)
-# Download punkt if it's missing
+
+# Download punkt (which includes necessary data like punkt_tab)
 try:
-    nltk.data.find("tokenizers/punkt")
+    nltk.data.find("tokenizers/punkt/english.pickle")
+    print("Punkt tokenizer already downloaded.")
 except LookupError:
     print("Downloading punkt tokenizer...")
     nltk.download("punkt", download_dir=nltk_path, force=True)
