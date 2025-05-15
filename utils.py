@@ -3,23 +3,14 @@ import numpy as np
 import nltk
 from nltk.stem.porter import PorterStemmer
 import string
-
-#Download tokenizer if not already present
-#nltk.download('punkt')
+import os
 
 
-# Add /tmp/nltk_data for Streamlit compatibility
-nltk_path = "/tmp/nltk_data"
+
+# Use local nltk_data path
+nltk_path = os.path.join(os.path.dirname(__file__), "nltk_data")
 nltk.data.path.append(nltk_path)
-print("nltk.data.path =", nltk.data.path)
 
-# Download punkt (which includes necessary data like punkt_tab)
-try:
-    nltk.data.find("tokenizers/punkt/english.pickle")
-    print("Punkt tokenizer already downloaded.")
-except LookupError:
-    print("Downloading punkt tokenizer...")
-    nltk.download("punkt", download_dir=nltk_path, force=True)
 
 
 
